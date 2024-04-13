@@ -111,6 +111,7 @@ zephyr_library_compile_definitions(
 zephyr_library_sources(${MICROPY_SOURCE_QSTR})
 
 add_dependencies(${MICROPY_TARGET} zephyr_generated_headers)
+target_link_libraries(${MICROPY_TARGET} INTERFACE kernel)
 
 include(${MICROPY_DIR}/py/mkrules.cmake)
 

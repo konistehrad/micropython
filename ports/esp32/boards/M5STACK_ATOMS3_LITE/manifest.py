@@ -1,4 +1,5 @@
 include("$(PORT_DIR)/boards/manifest.py")
 require("aioble")
+require("aiohttp")
 require("logging")
 freeze("modules")

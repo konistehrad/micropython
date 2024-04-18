@@ -36,6 +36,11 @@
 #define MICROPY_HEAP_SIZE (16 * 1024)
 #endif
 
+#if defined(__xtensa__)
+// works around ESP32 error in nlr_push
+#define MICROPY_NLR_SETJMP (1) 
+#endif
+
 #define MICROPY_ENABLE_SOURCE_LINE  (1)
 #define MICROPY_STACK_CHECK         (1)
 #define MICROPY_ENABLE_GC           (1)

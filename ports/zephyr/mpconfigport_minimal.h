@@ -28,11 +28,16 @@
 // Include Zephyr's autoconf.h, which should be made first by Zephyr makefiles
 #include "autoconf.h"
 // Included here to get basic Zephyr environment (macros, etc.)
-#include <zephyr.h>
+#include <zephyr/kernel.h>
 
 // Usually passed from Makefile
 #ifndef MICROPY_HEAP_SIZE
 #define MICROPY_HEAP_SIZE (16 * 1024)
+#endif
+
+#if defined(__xtensa__)
+// works around ESP32 error in nlr_push
+#define MICROPY_NLR_SETJMP (1) 
 #endif
 
 #define MICROPY_STACK_CHECK         (1)
